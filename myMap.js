@@ -33,8 +33,8 @@ function query_pokemon_data() {
         .then(function(result){
             //console.log(result.data);
             map_manager.map_items = result.data;
-        }).catch( function(result){
-            //console.log(result);
+        }).catch(function(result){
+            console.log(result);
         });
 }
 
@@ -72,7 +72,7 @@ function refresh_pokemon() {
      for (var i in map_manager.map_items) {
         var map_item = map_manager.map_items[i];
         //console.log(map_item);
-        var icon_url = 'https://github.com/chenditc/mypokemon.io/raw/gh-pages/images/pushpin_images/pokemon/' + map_item["pokemon_id"] + '.png';
+        var icon_url = './images/pushpin_images/pokemon/' + map_item["pokemon_id"] + '.png';
         var count_down = get_count_down_from_timestamp(map_item["expire"]);
         if (count_down !== "") {
             var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(map_item["latitude"], map_item["longitude"]), 
